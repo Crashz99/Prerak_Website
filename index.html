@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prerak Singh Tanwer — Security, ML &amp; Product Engineering</title>
+<meta name="description" content="Portfolio of Prerak Singh Tanwer — Computer Science and Information Security student building security systems, ML pipelines, and interactive web products including AtlasOps and VIBECADE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ambient-stars" id="ambientStars" aria-hidden="true"></div>
+<div class="ambient-orb orb-a" aria-hidden="true"></div>
+<div class="ambient-orb orb-b" aria-hidden="true"></div>
+
+<div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- persistent HUD reticle that tracks the cursor (desktop only) -->
+<div class="reticle" id="reticle" aria-hidden="true">
+  <span class="reticle-corner tl"></span>
+  <span class="reticle-corner tr"></span>
+  <span class="reticle-corner bl"></span>
+  <span class="reticle-corner br"></span>
+</div>
+
+<div class="scanline-overlay" aria-hidden="true"></div>
+
+<div class="scroll-rail" id="scrollRail" aria-hidden="true">
+  <svg class="rail-path" viewBox="0 0 40 320" preserveAspectRatio="none">
+    <polyline class="rail-path-line" points="20,0 6,53 34,107 6,160 34,213 6,267 20,320" />
+  </svg>
+  <div class="rail-marker" id="railMarker"></div>
+  <button class="rail-dot" data-target="about" style="top:0%; left:50%;"><span class="rail-label">About</span></button>
+  <button class="rail-dot" data-target="work" style="top:16.67%; left:15%;"><span class="rail-label">Experience</span></button>
+  <button class="rail-dot" data-target="leadership" style="top:33.33%; left:85%;"><span class="rail-label">Leadership</span></button>
+  <button class="rail-dot" data-target="projects" style="top:50%; left:15%;"><span class="rail-label">Projects</span></button>
+  <button class="rail-dot" data-target="skills" style="top:66.67%; left:85%;"><span class="rail-label">Skills</span></button>
+  <button class="rail-dot" data-target="achievements" style="top:83.33%; left:15%;"><span class="rail-label">Achievements</span></button>
+  <button class="rail-dot" data-target="contact" style="top:100%; left:50%;"><span class="rail-label">Contact</span></button>
+</div>
+
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-mark">PST<span class="nav-mark-dot">_</span></a>
+  <div class="nav-links">
+    <a href="#work" data-track>Experience</a>
+    <a href="#leadership" data-track>Leadership</a>
+    <a href="#projects" data-track>Projects</a>
+    <a href="#skills" data-track>Skills</a>
+    <a href="#achievements" data-track>Achievements</a>
+    <a href="#contact" data-track>Contact</a>
+    <a href="Prerak_Resume.pdf" class="nav-cta" data-track download>Résumé<svg class="icon icon-download" viewBox="0 0 12 12" width="11" height="11"><path d="M6 1V8M6 8L3 5M6 8L9 5M2 10.5H10" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <p class="eyebrow"><span class="eyebrow-tick"></span>Security · ML · product engineering</p>
+
+    <h1 class="name" id="nameHeading" aria-label="Prerak Singh Tanwer">
+      <span class="name-word" data-word="prerak">
+        <span class="letter">P</span><span class="letter" id="letter-r1">r</span><span class="letter">e</span><span class="letter letter-drop" id="letter-r2">r</span><span class="letter">a</span><span class="letter">k</span>
+      </span>
+      <span class="name-word" data-word="singh"><span class="letter">S</span><span class="letter">i</span><span class="letter">n</span><span class="letter">g</span><span class="letter">h</span></span>
+      <span class="name-word" data-word="tanwer"><span class="letter">T</span><span class="letter">a</span><span class="letter">n</span><span class="letter">w</span><span class="letter">e</span><span class="letter">r</span></span>
+    </h1>
+
+    <p class="hero-sub">I build security and ML systems that catch what tries not to be caught — and interactive products people actually want to use.</p>
+
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary" data-track>See the work</a>
+      <a href="#contact" class="btn btn-ghost" data-track>Get in touch</a>
+    </div>
+
+    <!-- ============ PURSUIT STRIP ============ -->
+    <div class="pursuit" id="pursuit">
+      <div class="pursuit-label">
+        <span id="pursuitStatus">TRACKING</span>
+        <span class="pursuit-confidence" id="pursuitConfidence">04%</span>
+      </div>
+      <div class="pursuit-track">
+        <canvas id="chaseCanvas" class="chase-canvas"></canvas>
+      </div>
+      <p class="pursuit-hint">running live — try scrolling</p>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <p class="section-eyebrow">// about</p>
+    <div class="about-grid reveal">
+      <p class="about-text">
+        Third-year B.Tech Computer Science student at VIT Vellore, specializing in
+        <span class="hl">Information Security</span>, with a CGPA of 8.15. I work across
+        <span class="hl">security engineering</span>, <span class="hl">machine learning</span>, and product development:
+        currently building the detection engine behind <span class="hl">EvolveSafe</span>, after developing
+        face-recognition and Smart City analytics pipelines at Bharat Electronics Limited and an internal
+        workflow-automation tool for the Indian Army. I also ship independent products including
+        <span class="hl">AtlasOps</span> and <span class="hl">VIBECADE</span>.
+      </p>
+      <div class="about-meta">
+        <div class="meta-row"><span class="meta-key">based</span><span class="meta-val">Vellore, India</span></div>
+        <div class="meta-row"><span class="meta-key">languages</span><span class="meta-val">EN · HI · DE (A2) · JP (N5)</span></div>
+        <div class="meta-row"><span class="meta-key">status</span><span class="meta-val"><span class="status-dot"></span>Open to security / ML / software roles</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section" id="work">
+    <p class="section-eyebrow">// experience</p>
+    <div class="timeline">
+
+      <article class="tl-item reveal">
+        <div class="tl-marker"><span class="tl-dot tl-dot-active"></span><span class="tl-line"></span></div>
+        <div class="tl-body">
+          <div class="tl-head">
+            <h3>Data Science Engineer <span class="tl-org">— NexaVerse</span></h3>
+            <span class="tl-date">Jul 2026 — Ongoing</span>
+          </div>
+          <p>Developing an AI-assisted detection engine for <strong>EvolveSafe</strong>, an AI-powered
+             browser-security product, to identify phishing websites and JavaScript obfuscation in real time —
+             alongside voice AI automation and LLM memory-system initiatives.</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-marker"><span class="tl-dot"></span><span class="tl-line"></span></div>
+        <div class="tl-body">
+          <div class="tl-head">
+            <h3>Summer Intern <span class="tl-org">— Bharat Electronics Limited</span></h3>
+            <span class="tl-date">May — Jul 2026</span>
+          </div>
+          <p>Engineered a two-stage <strong>YOLOv8 + InsightFace</strong> (SCRFD + ArcFace) recognition pipeline
+             with temporal-consensus voting and quality-gated auto-enrollment — near-perfect accuracy on
+             multi-angle validation, solving the cold-start problem for live reception CCTV feeds. Extended the
+             YOLOv8/ByteTrack toolchain into Smart City analytics: radar-less vehicle speed estimation, traffic
+             density heatmaps, and pedestrian re-identification, deployed on a 4× NVIDIA Tesla T4 server.</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-marker"><span class="tl-dot"></span></div>
+        <div class="tl-body">
+          <div class="tl-head">
+            <h3>Software Engineer Intern <span class="tl-org">— Indian Army</span></h3>
+            <span class="tl-date">May — Jul 2026</span>
+          </div>
+          <p>Designed and built an internal data-automation application using HTML, CSS, JavaScript and SQL,
+             with secure data processing and workflow automation.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ LEADERSHIP ============ -->
+  <section class="section" id="leadership">
+    <p class="section-eyebrow">// leadership</p>
+    <article class="leadership-card reveal" data-track>
+      <div class="leadership-kicker">GRAVITAS 2026 · VIT VELLORE</div>
+      <div class="leadership-head">
+        <h2>Manager — Esports, Technosports &amp; Creative Events</h2>
+        <span class="leadership-year">2026</span>
+      </div>
+      <p>Managing operations across <strong>22 events</strong> spanning Esports, Technosports, and Creative tracks for GRAVITAS 2026, VIT's flagship techno-cultural fest drawing approximately <strong>20,000 participants annually</strong>.</p>
+      <div class="leadership-meta">
+        <span>22 events</span><span>multi-track operations</span><span>flagship fest</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section" id="projects">
+    <p class="section-eyebrow">// projects</p>
+    <div class="project-grid">
+
+      <article class="project-card project-card-live reveal" data-track>
+        <span class="tracker-corner tl"></span><span class="tracker-corner tr"></span>
+        <span class="tracker-corner bl"></span><span class="tracker-corner br"></span>
+        <div class="project-scan"></div>
+        <div class="project-headrow"><h3>AtlasOps</h3><span class="live-pill">LIVE</span></div>
+        <p class="project-tag">Next.js · React · TypeScript · Leaflet · Vercel</p>
+        <p>A configurable operations and data-collection platform with dynamic forms, structured records, role-aware workflows, online mapping, analytics, and organisation-level customisation.</p>
+        <a href="https://atlas-ops-one.vercel.app/" target="_blank" rel="noopener" class="project-link" data-track>Open AtlasOps<svg class="icon icon-arrow" viewBox="0 0 12 12" width="11" height="11"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+
+      <article class="project-card reveal" data-track>
+        <span class="tracker-corner tl"></span><span class="tracker-corner tr"></span>
+        <span class="tracker-corner bl"></span><span class="tracker-corner br"></span>
+        <div class="project-scan"></div>
+        <h3>Privacy Shield</h3>
+        <p class="project-tag">Chrome Extension · Node.js · Etherscan API · GoPlus API</p>
+        <p>A weighted heuristic engine that flags malicious Ethereum wallets from real-time security metadata, using parallel async fetching and a risk-score interface for transaction velocity, wallet age, and related indicators.</p>
+      </article>
+
+      <article class="project-card reveal" data-track>
+        <span class="tracker-corner tl"></span><span class="tracker-corner tr"></span>
+        <span class="tracker-corner bl"></span><span class="tracker-corner br"></span>
+        <div class="project-scan"></div>
+        <h3>Hybrid Plagiarism Detection</h3>
+        <p class="project-tag">Python · Flask · React · NLP · Sentence Transformers</p>
+        <p>Combines exact-match analysis with sentence embeddings and cosine similarity to detect both verbatim copying and semantically paraphrased content.</p>
+      </article>
+
+      <article class="project-card project-card-vibe reveal" data-track>
+        <span class="tracker-corner tl"></span><span class="tracker-corner tr"></span>
+        <span class="tracker-corner bl"></span><span class="tracker-corner br"></span>
+        <div class="project-scan"></div>
+        <div class="project-headrow"><h3>VIBECADE</h3><span class="live-pill vibe-pill">PLAY</span></div>
+        <p class="project-tag">React · Vite · Web Audio API · IndexedDB · Vercel</p>
+        <p>A local-first interactive focus and music workspace with persistent playlists, study modes, session history, scheduling, reactive audiovisual rooms, mascots, and mini-games.</p>
+        <a href="https://vibecade.vercel.app/" target="_blank" rel="noopener" class="project-link" data-track>Enter VIBECADE<svg class="icon icon-arrow" viewBox="0 0 12 12" width="11" height="11"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+
+      <article class="project-card project-card-wide reveal" data-track>
+        <span class="tracker-corner tl"></span><span class="tracker-corner tr"></span>
+        <span class="tracker-corner bl"></span><span class="tracker-corner br"></span>
+        <div class="project-scan"></div>
+        <div class="project-headrow"><h3>Hostel Housekeeping Control Panel</h3><span class="live-pill">LIVE</span></div>
+        <p class="project-tag">React · Tailwind CSS · Vercel</p>
+        <p>An earlier operations dashboard for hostel hygiene management and room-inventory tracking, built around live state updates and a fast operational view.</p>
+        <a href="https://hostel-housekeeping-management-syst.vercel.app/" target="_blank" rel="noopener" class="project-link" data-track>Open live demo<svg class="icon icon-arrow" viewBox="0 0 12 12" width="11" height="11"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section" id="skills">
+    <p class="section-eyebrow">// stack</p>
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <p>C/C++ · Python · Java · JavaScript · TypeScript · SQL</p>
+      </div>
+      <div class="skill-group">
+        <h4>ML &amp; Computer Vision</h4>
+        <p>YOLOv8 · InsightFace (ArcFace / SCRFD) · ByteTrack</p>
+      </div>
+      <div class="skill-group">
+        <h4>Web</h4>
+        <p>React · Next.js · Node.js · Vite · Flask · Tailwind CSS · Leaflet</p>
+      </div>
+      <div class="skill-group">
+        <h4>Tools &amp; APIs</h4>
+        <p>Git · Vercel · Chrome Extension API · Etherscan API · GoPlus API · Web Audio API · IndexedDB</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <section class="section" id="achievements">
+    <p class="section-eyebrow">// achievements &amp; certifications</p>
+    <div class="badge-grid reveal">
+      <span class="badge">VIT Achievers List — 2025–2026</span>
+      <a class="badge badge-link" href="https://www.figma.com/proto/mqVv7814eab7G4qKLMA024/Mars?node-id=1-2&amp;page-id=0%3A1&amp;starting-point-node-id=1%3A2&amp;t=VaXDd12zpUunin6x-1" target="_blank" rel="noopener" data-track>GRAVITAS Designathon — 2nd Place, 2024 ↗</a>
+      <span class="badge">RIVIERA Creative Writing — 2nd Place, 2026</span>
+      <span class="badge">Alliance University MUN — Honourable Mention</span>
+      <span class="badge">Alliance University MUN — Best Delegation</span>
+      <span class="badge">Mastering DSA — Abdul Bari, Udemy</span>
+      <span class="badge">Indian Space Academy — Certified, 2025</span>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section section-contact" id="contact">
+    <p class="section-eyebrow">// contact</p>
+    <div class="contact-grid reveal">
+      <div>
+        <h2 class="contact-heading">Building something in security, ML, or software?<br>Let's talk.</h2>
+        <a class="btn btn-primary" href="mailto:preraktanwer@gmail.com" data-track>preraktanwer@gmail.com</a>
+      </div>
+      <div class="contact-links">
+        <a href="https://github.com/Crashz99" target="_blank" rel="noopener" data-track>GitHub<svg class="icon icon-arrow" viewBox="0 0 12 12" width="11" height="11"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="https://linkedin.com/in/prerak-tanwer" target="_blank" rel="noopener" data-track>LinkedIn<svg class="icon icon-arrow" viewBox="0 0 12 12" width="11" height="11"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="Prerak_Resume.pdf" data-track download>Résumé<svg class="icon icon-download" viewBox="0 0 12 12" width="11" height="11"><path d="M6 1V8M6 8L3 5M6 8L9 5M2 10.5H10" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Built by Prerak · <span id="year"></span> · <span class="footer-easter" id="footerEaster" title="press it">[ ping ]</span></p>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <span class="tracker-corner tl"></span><span class="tracker-corner tr"></span>
+  <span class="tracker-corner bl"></span><span class="tracker-corner br"></span>
+  ↑
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
